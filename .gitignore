@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# Directories
+build-src-Imported_Kit-Release/
+

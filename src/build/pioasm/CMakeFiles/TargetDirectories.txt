@@ -1,0 +1,3 @@
+/home/leviathan/Documents/git/WaveGuide/src/WaveGuide/build/pioasm/CMakeFiles/rebuild_cache.dir
+/home/leviathan/Documents/git/WaveGuide/src/WaveGuide/build/pioasm/CMakeFiles/edit_cache.dir
+/home/leviathan/Documents/git/WaveGuide/src/WaveGuide/build/pioasm/CMakeFiles/pioasm.dir
