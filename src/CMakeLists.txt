@@ -28,13 +28,17 @@ add_subdirectory(my_pico_audio_i2s)
 # Add executable. Default name is the project name, version 0.1
 
 add_executable(WaveGuide WaveGuide.cpp pinDefs.h
-                         audioDecoderClass.cpp audioDecoderClass.h)
+                         audioDecoderClass.cpp audioDecoderClass.h
+                         USBdevice_class.cpp USBdevice_class.h
+                         usb_descriptors.c usb_descriptors.h tusb_config.h)
 
 pico_set_program_name(WaveGuide "WaveGuide")
 pico_set_program_version(WaveGuide "0.1")
 
-pico_enable_stdio_uart(WaveGuide 1)
-pico_enable_stdio_usb(WaveGuide 0)
+# enable usb output, disable uart output
+pico_enable_stdio_usb(WaveGuide 1)
+pico_enable_stdio_uart(WaveGuide 0)
+
 
 # Add the standard library to the build
 target_link_libraries(WaveGuide
@@ -58,6 +62,10 @@ target_link_libraries(WaveGuide
 target_compile_definitions(WaveGuide PRIVATE
     #define for our example code
     USE_AUDIO_I2S=1
+    CFG_TUSB_MCU=OPT_MCU_RP2040
+    CFG_TUSB_OS=OPT_OS_PICO
+    #OPT_MODE_HIGH_SPEED, OPT_MODE_FULL_SPEED,
+    #OPT_MODE_DEVICE
 )
 pico_add_extra_outputs(WaveGuide)
 

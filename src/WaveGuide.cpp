@@ -8,9 +8,12 @@
 #include "hardware/watchdog.h"
 #include "hardware/clocks.h"
 #include "pico/multicore.h"
+#include <string.h>
 
 //Project includes
+#include "tusb_config.h"
 #include "pinDefs.h"
+#include "USBdevice_class.h"
 
 //
 // Core1 Processes
@@ -31,6 +34,9 @@ int64_t alarm_callback(alarm_id_t id, void *user_data) {
 int main()
 {
     stdio_init_all();
+    USBdevice_class USBdevice;
+    //USBdevice.picoToHostTest();
+    USBdevice.startTusb();
 
     // SPI initialisation. This example will use SPI at 1MHz.
     spi_init(OLED_SPI_PORT, 1000*1000);
@@ -66,7 +72,7 @@ int main()
 
 
 
-    puts("Hello, world!");
+    //puts("Hello, world!");
 
     return 0;
 }
